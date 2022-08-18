@@ -5,10 +5,10 @@ It has been ripped directly from the browser display files, and customized to fu
 Currently, aside from the working index, almost all pages/features are disabled (as "demo mode" restrictions). In the future, more pages may be added, for the demo to be complete.
 
 # Customization
-Using a search and replace function, you are encouraged to customize the following attributes to your own:
-```YOURDOMAIN```: replace with the domain you want to appear in the sidebar. This can be your host's domain, an example domain, or any domain you prefer.
-```YOURPREFIX```: replace with your host's username prefix. This is what comes before the numbers in your panel username, for example ```mofh_12345678```.
-```YOURSQL```: replace with your host's MySQL hostname. You can obtain it from your client panel. As it is not the same for all accounts, you can set it to something similar to ```sqldemo.yourdomain.com```.
+Using a search and replace function, you are encouraged to customize the following attributes to your own:  
+```YOURDOMAIN```: replace with the domain you want to appear in the sidebar. This can be your host's domain, an example domain, or any domain you prefer.  
+```YOURPREFIX```: replace with your host's username prefix. This is what comes before the numbers in your panel username, for example ```mofh_12345678```.  
+```YOURSQL```: replace with your host's MySQL hostname. You can obtain it from your client panel. As it is not the same for all accounts, you can set it to something similar to ```sqldemo.yourdomain.com```.  
 
 Additionally, as this is, in a way, a working VistaPanel, you can inject your own customizations, such as themes, scripts, and anything you can use in the panel's HTML advertisements.  
 Currently, the footer ad area is available, and can be located by searching for this text: ```Add your themes and scripts```. Make sure to follow the instructions there.  
@@ -23,7 +23,7 @@ If you want to implement it yourself, free feel to do so and make a PR to add it
 
 # Use a CDN
 If you do not want to host the files yourself, you can use the following files:
-* [jsDelivr.html](jsDelivr.html): the demo index configured to use the assets via jsDelivr's CDN.
+* [jsdelivr.html](jsdelivr.html): the demo index configured to use the assets via jsDelivr's CDN.
 * [ourCDN.html](ourCDN.html): the demo index configured to serve assets via our CDN.
 
 You'll still have to host the HTML file, obviously. You could point to [our demo](https://vpd.cdn.wybenetwork.com), however it will be using the default configuration.
