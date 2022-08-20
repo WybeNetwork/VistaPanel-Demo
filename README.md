@@ -1,7 +1,7 @@
 # VistaPanel Demo,but with features
 - [x] CNAME RECORDS
 - [x] PHP Version Changer
-- [ ] MySQL
+- [x] MySQL
 - [ ] PMA
 - [ ] More.
 
