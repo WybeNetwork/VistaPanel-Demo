@@ -2,6 +2,7 @@
 - [x] CNAME RECORDS
 - [x] PHP Version Changer
 - [x] MySQL
+- [x] PHPInfo
 - [ ] PMA
 - [ ] More.
 
