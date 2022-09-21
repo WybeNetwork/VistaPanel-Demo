@@ -1,4 +1,5 @@
 # VistaPanel Demo,but with features
+(Actually i have long time didnt update because im lazy xD)
 - [x] CNAME RECORDS
 - [x] PHP Version Changer
 - [x] MySQL
