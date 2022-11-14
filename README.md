@@ -47,4 +47,5 @@ All files included are licensed under their own terms, with the copyrights to th
 [Anyx](https://github.com/4yx): project creator.  
 [ImLoadingUuU](https://github.com/ImLoadingUuU): core contributor and maintainer.  
 [SmallHost](https://github.com/SmallHost): source of inspiration.  
-[AADev](https://github.com/mahofficial)
+[AADev](https://github.com/aa22dev)
+[Felipe B. Pansani](https://github.com/fbp110)
