@@ -7,7 +7,7 @@ This repository contains a working demo of VistaPanel, a web hosting panel used 
 - [x] PHP Version Changer
 - [x] MySQL
 - [x] PHPInfo
-- [ ] PMA
+- [x] PMA
 - [ ] More coming soon!
 
 ## Customization
