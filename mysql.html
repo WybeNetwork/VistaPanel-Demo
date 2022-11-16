@@ -59,7 +59,6 @@
       #cpanel_body {
          max-width: none
       }
-
       .panel-widget {
          border-radius: 3px;
          box-shadow: 0 0 3px rgba(0, 0, 0, .2);
@@ -439,8 +438,7 @@
 
         <h1 class="page-header">
             <span id="icon-mysql_databases" class="page-icon icon-mysql_databases"></span>
-            <span id="pageHeading">MySQL Databases</span>
-            
+            <span id="pageHeading">MySQL Databases</span>       
         </h1>
     MySQL Databases allow you to store lots of information in an easy to access manner. The databases themselves are not easily read by humans. MySQL databases are required by many web applications including some bulletin boards, content management systems, and others. To use a database, you'll need to create it. Only your MySQL Username (same as your control panel login user) has privileges to access a database and read from or write to that database.
 <br><br>
@@ -453,9 +451,6 @@ td {
     font-size: 11px;
 }
 </style> 
-
-
-
 <div class="secton">
 
  <h2 id="hdrCreateDb">
@@ -468,8 +463,6 @@ Currently using <strong>0</strong> of <strong> -99999 </strong>  available datab
 
             </div>
 </div>
-
- 
             <div class="form-group">
                 <label id="lblDbName" for="dbname">
                     New Database:
@@ -493,11 +486,25 @@ Currently using <strong>0</strong> of <strong> -99999 </strong>  available datab
                 <button  data-toggle="modal" data-target="#demo" target="" id="submit_dbname" class="btn btn-primary">Create Database</button>
             </div>
         </form>
-      
-
-
-
-
+        <div class="formbox">
+         <h2 id="hdrCreateDb">Delete a database</h2>
+            <div class="highlight">
+    
+     <label id="lblDbName" for="dbname">
+    DELETE Database                </label>
+    
+    <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <select name="toremove" class="form-control" id="toremove">
+                  demo_db<option selected="selected">demo_db</option>            </select>
+    </div> </div>
+    <br>
+    <div class="form-group">
+                <input class="btn btn-danger" href="#" data-toggle="modal" data-target="#demo" value="Remove Database" type="submit">             
+    </div>        
+      </div></form>
+      </div>
 <div class="formbox">
 <h2 id="hdrCreateDb"> Current Databases</h2>
 </div>
@@ -512,27 +519,13 @@ Currently using <strong>0</strong> of <strong> -99999 </strong>  available datab
       </tr>
     </thead>
     <tbody>
-                
+		<tr><td><big>demo_db</big></td><td><big>demo_db</big></td><td><big><i>(Your vPanel Password)</i></big></td><td><big>YOURSQL</big></td><td><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#demo">Admin</a> 
       </tbody><tfoot></tfoot></table>
-
-
- 
-
-      
-
-      
-    
-  
-
-
-
-
 <table>
 <tbody><tr>
 <td>
 Experiencing issues with phpMyAdmin? Log out of your control panel, clear cookies and sessions [not available in all browsers] and log back into your control panel and try again..
 </td>
-
 </tr><tr><td>
 <br><br><hr>
 Did you know premium hosting allows you to create individual MySQL users and privileges? All premium accounts have upto 1GB of mysql storage.  
@@ -544,17 +537,11 @@ Premium hosting MySQL server benefits :<br>
 - Remote MySQL connections.<br>
 <br>
 Every paid hosting plan includes a free Top Level Domain name!<br>
-<a class="transition" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">(Paid
+<a class="transition" href="#" data-toggle="modal" data-target="#demo">(Paid
 accounts have unlimited installs) Prices starting at only $3.99 per
 month</a>
 Find out more about Premium Hosting today!
 </td></tr></tbody></table>
-
-
-
-<!-- End of StatCounter Code for Default Guide -->
-
-
 </div></div>
          <!-- End Content!!!!!!!! END CONTENT-->
    </div>

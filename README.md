@@ -8,6 +8,7 @@ This repository contains a working demo of VistaPanel, a web hosting panel used 
 - [x] MySQL
 - [x] PHPInfo
 - [x] PMA
+- [x] Disk Usage
 - [ ] More coming soon!
 
 ## Customization
