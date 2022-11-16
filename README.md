@@ -45,8 +45,7 @@ This project is currently maintained by [ImLoadingUuU](https://github.com/ImLoad
 All files included are licensed under their own terms, with the copyrights to their owners retained.
 
 ### Contributors
-[Anyx](https://github.com/4yx): project creator.  
-[ImLoadingUuU](https://github.com/ImLoadingUuU): core contributor and maintainer.  
-[SmallHost](https://github.com/SmallHost): source of inspiration.  
-[AADev](https://github.com/aa22dev)  
-[Felipe B. Pansani](https://github.com/fbp110)
+- [Anyx](https://github.com/4yx): project creator.  
+- [ImLoadingUuU](https://github.com/ImLoadingUuU), [Felipe B. Pansani](https://github.com/fbp110): core contributors and maintainers.  
+- [SmallHost](https://github.com/SmallHost): source of inspiration.  
+- [AADev](https://github.com/aa22dev): contributor and bug fixer.  
