@@ -369,7 +369,7 @@
                   <span class="cp-icon-bar"></span>
                   <span class="cp-icon-bar"></span>
                </button>
-               <a id="lnkHeaderHome" class="navbar-brand" target="_top" title="Home">
+               <a href="./" id="lnkHeaderHome" class="navbar-brand" target="_top" title="Home">
                   <img id="imgLogo" class="navbar-brand-logo" src="elements/vplogo.png" alt="">
                   <font style="vertical-align: sub;">
                   </font>
@@ -456,7 +456,7 @@
          <option value="5.4">PHP 5.4</option>
       </select></td></tr></tbody></table><table><tbody><tr><td><br>
       </gr>
-      <input type="submit" class="btn btn-success" onclick="update()" name="Submit" value="Choose PHP version"></td></tr></tbody></table></div></div></div><div class="row"><div class="col-xs-12 col-md-12"></div></div>
+      <input type="button" class="btn btn-success" href="#" data-toggle="modal" data-target="#demo" target="" name="Submit" value="Choose PHP version"></td></tr></tbody></table></div></div></div><div class="row"><div class="col-xs-12 col-md-12"></div></div>
         <hr>
    </div>
    
@@ -500,23 +500,5 @@
          </div>
       </div>
    </footer>
-   <script>
-      var s = document.getElementById("phpselector")
-      let str = document.cookie;
-
-str = str.split('; ');
-const result = {};
-for (let i in str) {
-    const cur = str[i].split('=');
-    result[cur[0]] = cur[1];
-}
-
-      function update() {
-      document.cookie = `PHPVersion=${s.value}`
-      history.back();
-         console.log(s.value)
-      }
-   </script>
 </body>
-
 </html>
