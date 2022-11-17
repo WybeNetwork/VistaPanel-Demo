@@ -430,82 +430,54 @@
          <br><br>
          <div style="position: float;left:100px; vertical-align:middle;"></div>
       </aside>
-<div class="body-content">
-<div id="content" class="container-fluid">
-    <div class="col-xs-12 col-md-12 text-center"></div>
+<!-- Content -->
+ <div id="content" class="container-fluid">
             <h1 class="page-header">
-            <span id="icon-addon_domains" class="page-icon icon-addon_domains"></span>
-            <span id="pageHeading">Addon Domains</span>
+            <span id="icon-contact_information" class="page-icon icon-contact_information"></span>
+            <span id="pageHeading">Contact Information</span>
             
         </h1>
-	
-	This is the section where you can add your own domains that you have 
-registered with a domain registrar. Once you have added your domain, a 
-unique clearly labelled folder will be created on our system and you 
-will be able to upload your domains content within it either by FTP, 
-File Manager, Website Builder or Script Installer
-	<h2>Create an Addon Domain</h2>
-	
-	
+<div class="body-content">
 
-	<div>
-		<form>
-				<b>New Domain Name:</b><br>
-				<input class="form-control" type="text" style="width: 50%">
-				<div id="domain_error"></div>
-				<br><input href="#" type="button" data-toggle="modal" data-target="#demo" title="" class="btn btn-primary" value="Add Domain">
-		<br><br><div class="alert alert-warning">
-            <span class="glyphicon glyphicon-exclamation-sign"></span>
-            <div class="alert-message">Note: You must set your domains name servers to the following before adding the domain to this system: <p></p><b>ns1.YOURDOMAIN.com<br>
-        ns2.YOURDOMAIN.com<br></b></div>
-</div>
-		</form>
-</div>
-<h2>Modify Addon Domain</h2>
+<h1>Update Contact Email</h1>
 
-<table id="subdomaintbl" class="table" cellspacing="0" cellpadding="5" border="0">
-        <colgroup>
-                <col width="15%" align="center">
-                <col width="70%" align="left">
-                <col width="15%" align="center">
-        </colgroup>
-        <tbody><tr class="row-%">
-                <th style="white-space:nowrap;" scope="col" class="cell" nowrap="nowrap" align="center">&nbsp;&nbsp;Addon Domains</th>
-                <th class="cell" align="center">Document Root</th>
-                <th colspan="2" class="cell-end sorttable_nosort" align="center">Actions</th>
-        </tr>
+<div class="content">
+It is important to have a correct, valid and working e-mail address 
+associated with your account in the event you need to reset your 
+password.<br>Please provide a current e-mail address using a provider such as your ISP or Google Mail.	</div>
+<br>
+<form name="emailchange">
+  <table style="text-align: left; width: 500px; height: 100px;" class="rightcolumn" cellspacing="2
+" cellpadding="0" border="0">
+    <tbody>
+      <input type="hidden" name="ttt" value="234759310936347648">
+      <tr>
+        <td style="width: 260px;"><p>Registered Email:</p></td>
+        <td style="width: 9px;"></td>
+        <td style="width: 409px;"><p>demo@wybenetwork.com</p></td>
+      </tr>
+      <tr>
+        <td style="width: 260px;"><p>New Email:</p></td>
+        <td style="width: 9px;"></td>
+        <td style="width: 409px;"><input class="form-control" size="40" name="newemail" type="text"></td>
+      </tr>
+      <tr>
+        <td style="width: 260px;"><p>Confirm New Email:</p></td>
+        <td style="width: 9px;"></td>
+        <td style="width: 409px;"><input class="form-control" size="40" name="confemail" type="text"></td>
+      </tr>
+             <tr>
+                <td>
+                    <br>
+                    <input value="Change" class="btn btn-primary" type="button" href="#" data-toggle="modal" data-target="#demo">
+                </td>
+                </tr>
 
-        <tr><td style="text-align: left; ">wonderfulblog.com</td><td style="text-align: left; "><small>/home/DEMO/YOURDOMAIN/YOURPREFIX/wonderfulblog.com</small></td><td style="text-align: left;">
-                 <input type="button" class="btn btn-danger" href="#" data-toggle="modal" data-target="#demo" title="" style="width: 8em" value="Delete">
-<input class="btn btn-primary" type="button" href="#" data-toggle="modal" data-target="#demo" title="" style="width: 8em" value="Site Builder"> </td>
-                </tr>      
     </tbody>
   </table>
-
-<br>
-<p>Want a new domain instead? Check now to see if your preferred top-level domain is available!</p>
-
-<form action="https://ifastnet.com/portal/domainchecker.php" method="post">
-<input type="hidden" name="direct" value="true">
-Domain: <input type="text" name="domain" size="20"> <select name="ext">
-<option selected="selected">.info</option>
-<option>.com</option>
-<option>.net</option>
-<option>.org</option>
-<option>.cc</option>
-<option>.co.uk</option>
-<option>.biz</option>
-<option>.bz</option>
-<option>.eu</option>
-<option>.mobi</option>
-<option>.us</option>
-<option>.name</option>
-</select>
-<input class="btn btn-primary" type="submit" value="Go">
 </form>
-</div><!-- end body-content -->
-    </div>
-    <div class="ft"></div>
+</div>
+</div>
 </div>
 <footer>
     <!-- UI INCLUDES GLOBAL FOOTER -->
@@ -513,7 +485,9 @@ Domain: <input type="text" name="domain" size="20"> <select name="ext">
     <div class="container-fluid">
        <br>
        <!--Add your themes and scripts BELOW this line. No theme is currently active, and Responsive Domain Search is enabled.-->
-         
+
+       <script src="https://vpc.cdn.wybenetwork.com/responsive-domain-search/responsive-domain-search.js"
+          type="text/javascript"></script>
        <!--Add your themes and scripts ABOVE this line. No theme is currently active, and Responsive Domain Search is enabled.-->
        <div class="navbar">
           <div class="navbar-brand" style="display:inline-block; z-index:2147483647; visibility:invisible;">
@@ -545,7 +519,5 @@ Domain: <input type="text" name="domain" size="20"> <select name="ext">
        </div>
     </div>
  </footer>
-
 </body>
-
 </html>
