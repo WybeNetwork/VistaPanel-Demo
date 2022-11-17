@@ -430,131 +430,161 @@
          <br><br>
          <div style="position: float;left:100px; vertical-align:middle;"></div>
       </aside>
-      <!-- PAGE TEMPLATE'S CONTENT START -->
-      <div id="content" class="container-fluid">
-         <div class="body-content">
+<style type="text/css">
+td { word-wrap: break-word; }
+a.action-link {
+    padding-right: 5px;
+}
+</style>
+
+ <div id="content" class="container-fluid">
+    
+    
+
             <h1 class="page-header">
-               <span id="icon-simple_zone_editor" class="page-icon icon-simple_zone_editor"></span>
-               <span id="pageHeading">Custom CNAME Records</span>
+            <span id="icon-subdomains" class="page-icon icon-subdomains"></span>
+            <span id="pageHeading">Subdomains</span>
+            
+        </h1>
 
-            </h1>
 
-            <div class="body-content">
-               Use the options below to add CNAME records for domains on your account such as for Google Apps
-               services<br><br>
-               <b>Add CNAME Record</b><br><br>
-               <table id="sql_db_tbl" class="table" style="width: 100%; height: 31px;" border="0" cellpadding="2"
-                  cellspacing="2">
-                  <tbody>
-                     
-                     <tr>
-                        <th class="cell" style="text-align: left; width: 154px;">Record Name
-                        </th>
-                        <th class="cell" style="text-align: left; width: 204px;">Domain
-                        </th>
-                        <th class="cell" style="text-align: left; width: 204px;">Destination
-                        </th>
-                        <th class="cell" style="text-align: right; width: 25px;">Actions
-                        </th>
-                     </tr>
-                     <tr>
-                        <td style="width: 154px;" class="rightcolumn"><input placeholder="SOURCE" onfocus="clearInput(this);"
-                              onblur="restoreInput(this);" size="20" name="source"></td>
-                        <td style="width: 204px;"><select name="d_name">
-                              <option>wonderfulblog.com</option>
-                              <option>site.wonderfulblog.com</option>
-                           </select>
-                           <br>
+        Subdomains are URLs for different sections of your website. They
+ use your main domain name and a prefix. For example, if your domain is 
+maindomain.com a sub-domain of your domain might be new.maindomain.com.
 
-                        </td>
 
-                        <td style="width: 154px;" class="rightcolumn"><input placeholder="DESTINATION"
-                              onfocus="clearInput(this);" onblur="restoreInput(this);" size="20" name="destination">
-                        </td>
-                        <td style="width: 25px;text-align: right;"><a value="Add" href="#" data-toggle="modal" data-target="#demo" name="B1" class="btn btn-primary" type="submit">Add</a></td>
-
-                     </tr>
-                  </tbody>
-               </table>
-               <br><br>
-               &nbsp;&nbsp;<b>Remove CNAME Records</b><br><br>
-               <table id="sql_db_tbl" class="table" style="width: 100%; height: 31px;" border="0" cellpadding="2"
-                  cellspacing="2">
-                  <tbody>
-                     <tr>
-                        <th class="cell" style="text-align: left;">CNAME Record
-                        </th>
-                        <th class="cell" style="text-align: left;">Destination
-                        </th>
-                        <th class="cell" style="text-align: center; width:30px;">Actions
-                        </th>
-                     </tr>
-                     <tr></tr>
+    <br><br>Subdomains are relative to your account htdocs directory. A 
+folder in the same name as the subdomain is created for you to upload 
+your websites files into.  Each sub domain is a new unique website.
+	
 
 
 
-                  </tbody>
-               </table>
-               <br><br>
-               <hr>
+ <h2>Create a Subdomain</h2>
 
+	<div class="highlight">
+<form>
+	<table>
+	<tbody><tr>
+	<td><input type="text" onchange="updatedir(this);" id="domain" name="DomainName">&nbsp;<big><b>.</b></big>&nbsp;
+	<select name="domain_selector" style="width: 300px">
+	
+<option selected="selected">22web.org</option>
+        <option>10001mb.com</option>
+        <option>2kool4u.net</option>
+        <option>66ghz.com</option>
+        <option>a0001.net</option>
+        <option>fast-page.org</option>
+	<option>fanclub.rocks</option>
+        <option>html-5.me</option>
+        <option>iblogger.org</option>
+        <option>is-best.net</option>
+        <option>is-great.net</option>
+        <option>is-great.org</option>
+        <option>likesyou.org</option>
+        <option>loveslife.biz</option>
+        <option>my-board.org</option>
+        <option>my-style.in</option>
+        <option>mydiscussion.net</option>
+        <option>nichesite.org</option>
+        <option>social-networking.me</option>
+        <option>synergize.co</option>
+        <option>talk4fun.net</option>
+        <option>totalh.net</option>
+        <option>web1337.net</option>
+        <option>wonderfulblog.com</option>
+						</select>
+					</td>
+					<td><div id="domain_error" style="height: 16px; width: 16px"></div></td>
+				</tr>
+						</tbody></table>
+				<br>
+					<input class="btn btn-primary" id="subdomain_submit" href="#" data-toggle="modal" data-target="#demo" type="button" value="Create">
+		</form>
+	</div>
 
+ <h2>
+        Modify a Subdomain
+    </h2>
+ <table id="subdomaintbl" style="table-layout: fixed;" class="table table-striped table-hover" cellspacing="0" cellpadding="5" border="0">
+        <tbody><tr>
+          <th style="padding-right:0px;" class="cell" width="22%" align="right">Current Sub-domains</th>
+          <th class="cell" width="68%" align="center">Home Directory</th>
+          <th class="cell" colspan="2" width="12%" align="center">Actions</th>
+        </tr>
+        </tbody><tbody>
 
-               Get the latest cPanel, free domain names, free SSL certificates for all your domain, Softaculous,
-               enhanced PHP, Massive MySQL performance, Perl, Ruby on rails and much much more on Premium hosting now !
-               <a class="btn btn-info" href="http://ifastnet.com/cpanelpreview2.php" target="_blank"> View the Premium
-                  vPanel Demo!</a><br>
-               <br>
-               Free domains are included with most plans including .COM, .NET, .ORG and .INFO<br><br>
-               <a class="btn btn-info" href="https://ifastnet.com/portal/aff.php?aff=23782" target="_blank">Find out
-                  more about Premium Hosting today!</a>
-            </div>
+	<tr><td style="text-align: left; "><small>site.wonderfulblog.com</small></td><td style="text-align: left; "><small>/home/DEMO/YOURDOMAIN/YOURPREFIX_DEMO/site.wonderfulblog.com</small></td><td style="text-align: center;width: 4px;">	
+		<script type="text/javascript">
+		function disp_confirm1()
+		  {
+		  window.location = "/panel/indexpl.php?option=subdomains_rem&site=vpdemo.22web.org"
+		  }
+		</script>
+	   <input type="button" style="width: 7em" class="btn btn-danger" href="#" data-toggle="modal" data-target="#demo" value="Delete"> <br><input type="button" style="width: 7em" class="btn btn-primary" href="#" data-toggle="modal" data-target="#demo" value="SiteBuilder"> </td></tr>
+   </tbody>
+   </table>
+<br>
+<br>
+<p>Want a new domain instead? Check now to see if your preferred top-level domain is available!</p>
+<form action="https://ifastnet.com/portal/domainchecker.php" method="post">
+<input type="hidden" name="direct" value="true">
+Domain: <input type="text" name="domain" size="20"> <select name="ext">
+<option selected="selected">.info</option>
+<option>.com</option>
+<option>.net</option>
+<option>.org</option>
+<option>.cc</option>
+<option>.co.uk</option>
+<option>.biz</option>
+<option>.bz</option>
+<option>.eu</option>
+<option>.mobi</option>
+<option>.us</option>
+<option>.name</option>
+</select>
+<input class="btn btn-primary" type="submit" value="Go">
+</form>
+<p>If it is available you can have it in less than six clicks and be up and running in 24~72 hours!</p>
+</div>
+</div>
+<footer>
+    <!-- UI INCLUDES GLOBAL FOOTER -->
+    <!-- UI INCLUDES GLOBAL FOOTER END -->
+    <div class="container-fluid">
+       <br>
+       <!--Add your themes and scripts BELOW this line. No theme is currently active.-->
 
-         </div>
-      </div>
-
-      <!-- PAGE TEMPLATE'S CONTENT END -->
-      <footer>
-         <!-- UI INCLUDES GLOBAL FOOTER -->
-         <!-- UI INCLUDES GLOBAL FOOTER END -->
-         <div class="container-fluid">
-            <br>
-            <!--Add your themes and scripts BELOW this line. No theme is currently active, and Responsive Domain Search is enabled.-->
-
-            <script src="https://vpc.cdn.wybenetwork.com/responsive-domain-search/responsive-domain-search.js"
-               type="text/javascript"></script>
-            <!--Add your themes and scripts ABOVE this line. No theme is currently active, and Responsive Domain Search is enabled.-->
-            <div class="navbar">
-               <div class="navbar-brand" style="display:inline-block; z-index:2147483647; visibility:invisible;">
-                  <a id="lnkPoweredByCpanel" href="https://www.cpanel.net" target="cpanel" title="cPanel, Inc."
-                     style="display:inline-block; z-index:2147483647; visibility:visible;">
-                     <img id="imgPoweredByCpanel" src="elements/powered_by_cpanel.png" alt="cPanel, Inc."
-                        style="display:inline-block; z-index:2147483647; visibility:visible;">
-                  </a>
-                  <sub id="txtCpanelVersion"
-                     style="display:inline-block; z-index:2147483647; visibility:visible;"></sub>
-               </div>
-            </div>
-         </div>
-         <div class="modal fade" id="demo" tabindex="-1" role="dialog" aria-labelledby="demoDisabled" aria-hidden="true"
-            style="display: none;">
-            <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                  <div class="modal-header"
-                     style="border: 1px solid #293a4a;background-color: rgba(41,58,74,.95);color: #fff;">
-                     <h4 class="modal-title" id="demoDisabled">Demo Mode</h4>
-                  </div>
-                  <div class="modal-body">
-                     <p>This functionality is disabled in demo mode!</p>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-
+       <!--Add your themes and scripts ABOVE this line. No theme is currently active.-->
+       <div class="navbar">
+          <div class="navbar-brand" style="display:inline-block; z-index:2147483647; visibility:invisible;">
+             <a id="lnkPoweredByCpanel" href="https://www.cpanel.net" target="cpanel" title="cPanel, Inc."
+                style="display:inline-block; z-index:2147483647; visibility:visible;">
+                <img id="imgPoweredByCpanel" src="elements/powered_by_cpanel.png" alt="cPanel, Inc."
+                   style="display:inline-block; z-index:2147483647; visibility:visible;">
+             </a>
+             <sub id="txtCpanelVersion"
+                style="display:inline-block; z-index:2147483647; visibility:visible;"></sub>
+          </div>
+       </div>
+    </div>
+    <div class="modal fade" id="demo" tabindex="-1" role="dialog" aria-labelledby="demoDisabled" aria-hidden="true"
+       style="display: none;">
+       <div class="modal-dialog" role="document">
+          <div class="modal-content">
+             <div class="modal-header"
+                style="border: 1px solid #293a4a;background-color: rgba(41,58,74,.95);color: #fff;">
+                <h4 class="modal-title" id="demoDisabled">Demo Mode</h4>
+             </div>
+             <div class="modal-body">
+                <p>This functionality is disabled in demo mode!</p>
+             </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+             </div>
+          </div>
+       </div>
+    </div>
+ </footer>
 </body>
-
 </html>
