@@ -430,26 +430,32 @@
          <br><br>
          <div style="position: float;left:100px; vertical-align:middle;"></div>
       </aside>
-    <div id="content" class="container-fluid">
-        <h1 class="page-header">
+ <div id="content" class="container-fluid">
+            <h1 class="page-header">
             <span id="icon-ssl_tls" class="page-icon icon-ssl_tls"></span>
-            <span id="pageHeading">SSL/TLS</span>  
+            <span id="pageHeading">SSL/TLS</span>
+
         </h1>
     <div class="body-content">
-    The TLS / SSL manager shows you sites that have SSL enabled on them.<br><br>You can below configure a 'Signed' certificate for your website.
+    Below you can generate new private keys, and csr's , or you can import a key / certificate pair for your domain. <br><br>
+    <div class="alert alert-warning">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                <div class="alert-message">WARNING, YOU SHOULD AWAYS TAKE A 
+    BACKUP COPY OF YOUR PRIVATE KEY AND CERTIFICATE, IF THESE ARE LOST YOU 
+    WILL NEED TO RE-PURCHASE THE SSL CERTIFICATE !</div></div>
+    If you have an existing key / certificate for a domain, enter it in the correct fields below, and click the 'Upload' button.<br>
+    If you are needing a new certificate, use the 'Generate Key / CSR' 
+    button, this will then generate a new CSR and private key, you then 
+    supply these to the ssl signer who will then issue a certificate that 
+    you must upload in the Certificate box to complete the SSL activation.
     <br><br>    
-    The default SSL is a <a href="http://en.wikipedia.org/wiki/Self-signed_certificate" target="_blank">Self Signed Certificate</a>.<br><br>
-    Clicking 'Configure' below allows a signed certificate to be activated.<br><br>
-        <br><table id="sql_db_tbl" class="table" style="width: 100%; height: 31px;" cellspacing="2" cellpadding="2" border="0">
+        <br><table id="sql_db_tbl" style="width: 100%; height: 31px;" class="rightcolumn" cellspacing="2" cellpadding="2" border="0">
     <tbody>
-    <tr><th class="cell" style="text-align: left; width: 154px;">Site URL
-    </th><th class="cell" style="text-align: left; width: 204px;">Configure SSL
-    </th><th class="cell" style="text-align: left; width: 204px;">Upgrade
-    </th></tr><tr><td style="width: 154px;" class="rightcolumn"> wonderfulblog.com </td> <td> <a class="btn btn-primary" href="sslconfigure.html">Configure</a></td><td><a class="btn btn-primary" href="upgrade.html">Upgrade</a></td></tr><tr><td style="width: 154px;" class="rightcolumn"> site.wonderfulblog.com </td> <td> <a class="btn btn-primary" href="sslconfigure.html">Configure</a></td><td><a class="btn btn-primary" href="upgrade.html">Upgrade</a></td></tr><tr><td style="width: 154px;" class="rightcolumn"> parkedblog.com </td> <td> <a class="btn btn-primary" href="sslconfigure.html">Configure</a></td><td><a class="btn btn-primary" href="upgrade.html">Upgrade</a></td></tr>                                                          
+    <form></form><input type="hidden"><tr><td>Private Key</td><td><textarea rows="20" cols="50" name="key"></textarea></td><td><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#demo">Generate Key / CSR</a></td><td><input type="button" href="#" data-toggle="modal" data-target="#demo" class="btn btn-primary" value="Upload Key"></td></tr><tr><td>CSR </td><td><textarea rows="20" cols="50" name="csr"></textarea></td></tr><form></form><input type="hidden"><tr><td>Certificate</td><td><textarea rows="20" cols="50" name="cert"></textarea></td><td><a class="btn btn-danger" href="#" data-toggle="modal" data-target="#demo">Delete Certificate</a></td><td><input type="button" href="#" data-toggle="modal" data-target="#demo" class="btn btn-primary" value="Upload Certificate"></td></tr>                                                        
     </tbody>
     </table>
     <br><br>
-    <table id="sql_db_tbl" class="table" style="width: 100%; height: 31px;" cellspacing="2" cellpadding="2" border="0">
+    <table id="sql_db_tbl" class="sortable" style="width: 100%; height: 31px;" cellspacing="2" cellpadding="2" border="0">
     <tbody>
     </tbody></table>
     Get the latest cPanel, free domain names, free SSL certificates for all 
@@ -459,7 +465,7 @@
     Free domains are included with most plans including .COM, .NET, .ORG and .INFO<br><br>
     <a class="btn btn-info" href="https://ifastnet.com/portal/sharedhosting.php" target="_blank">Find out more about Premium Hosting today!</a>
     </div>
-<footer>
+    <footer>
     <!-- UI INCLUDES GLOBAL FOOTER -->
     <!-- UI INCLUDES GLOBAL FOOTER END -->
     <div class="container-fluid">
