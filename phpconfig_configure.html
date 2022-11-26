@@ -1,0 +1,843 @@
+<html lang="english" dir="ltr" data-style="basic">
+<!--
+   vPanel Demo
+   (c) 2022-Present Wybe Network, no rights reserved. The idea and text is from SmallHost, at smallhost.us.to.
+   This is a demo version of vPanel for MOFH-based providers.
+   You are free to use this code with changes that will be explained later. 
+   Providing/retaining credit to Wybe and SmallHost is recommended, but not required.
+   Enjoy! ^w^
+-->
+<head>
+   <style type="text/css">
+      .ng-animate.item:not(.left):not(.right) {
+         -webkit-transition: 0s ease-in-out left;
+         transition: 0s ease-in-out left
+      }
+   </style>
+   <style type="text/css">
+      @charset "UTF-8";
+
+      [ng\:cloak],
+      [ng-cloak],
+      [data-ng-cloak],
+      [x-ng-cloak],
+      .ng-cloak,
+      .x-ng-cloak,
+      .ng-hide:not(.ng-hide-animate) {
+         display: none !important;
+      }
+
+      ng\:form {
+         display: block;
+      }
+
+      .ng-animate-shim {
+         visibility: hidden;
+      }
+
+      .ng-anchor {
+         position: absolute;
+      }
+   </style>
+   <title> </title>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width">
+   <!-- Chrome, Firefox OS and Opera -->
+   <meta name="theme-color" content="#293a4a">
+   <!-- Mobile Chrome-->
+   <meta name="mobile-web-app-capable" content="yes">
+   <meta name="mobile-web-app-status-bar-style" content="default">
+   <!-- iOS Safari -->
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+   <link rel="shortcut icon" href="elements/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" type="text/css" href="elements/original.master-ltr.cmb.min.css">
+   <link rel="stylesheet" type="text/css" href="elements/chosen.min.css">
+   <style type="text/css">
+      /* Embedding: /usr/local/cpanel/base/frontend/paper_lantern/home/dashboard.min.css */
+      #cpanel_body {
+         max-width: none
+      }
+
+      .panel-widget {
+         border-radius: 3px;
+         box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+         height: auto;
+         border: 0;
+         margin-bottom: 15px;
+         display: table;
+         width: 100%;
+         max-width: 100%
+      }
+
+      .widget-heading {
+         border: 1px solid #293a4a;
+         background-color: rgba(41, 58, 74, .95);
+         color: #fff;
+         text-transform: uppercase
+      }
+
+      .widget-heading .close {
+         color: #fff;
+         opacity: 1
+      }
+
+      .widget-draggable {
+         cursor: move
+      }
+
+      .group-header-indicator {
+         cursor: pointer
+      }
+
+      html[dir="rtl"] .pull-right {
+         float: left !important
+      }
+
+      .alert-list {
+         margin: 0;
+         padding: 0;
+         width: 100%
+      }
+
+      .alert-item {
+         padding: 0 8px;
+         display: inline-block;
+         width: 50%;
+         vertical-align: top;
+         float: left;
+         zoom: 1;
+         *display: inline
+      }
+
+      html[dir="rtl"] .alert-item {
+         float: right
+      }
+
+      @media(max-width:767px) {
+         .alert-item {
+            width: 100%;
+            padding: 0 8px
+         }
+      }
+
+      .drag {
+         opacity: .5
+      }
+
+      .drag+.drag-over,
+      #content .drag-hidden {
+         margin: 0;
+         height: 0;
+         outline-style: none
+      }
+
+      .drag-over {
+         outline-style: dashed;
+         height: 80px;
+         margin: 10px 0
+      }
+
+      .drop-area {
+         padding: 5px 0
+      }
+
+      #jump-search {
+         margin-bottom: 5px
+      }
+
+      .icon-menu-section {
+         margin-bottom: 5px
+      }
+
+      .icon-container-body {
+         padding-left: 15px;
+         padding-top: 15px;
+         clear: both;
+         margin-left: 0;
+         margin-right: 0;
+         overflow: hidden;
+         width: 100%
+      }
+
+      html[dir="rtl"] .icon-container-body {
+         padding-right: 15px;
+         padding-left: 0
+      }
+
+      .item {
+         float: left;
+         height: 60px;
+         padding: 0;
+         text-align: left
+      }
+
+      html[dir="rtl"] .item {
+         text-align: right;
+         float: right
+      }
+
+      .icon {
+         display: block;
+         margin: auto
+      }
+
+      .itemContentWrapper {
+         padding: 0;
+         width: 100%
+      }
+
+      .itemImageWrapper {
+         display: inline-block;
+         vertical-align: middle
+      }
+
+      .itemTextWrapper {
+         padding: 10px 0 10px 5px;
+         display: inline-block;
+         vertical-align: middle;
+         width: 200px
+      }
+
+      html[dir="rtl"] .itemTextWrapper {
+         padding: 10px 5px 10px 0
+      }
+
+      .icon-menu-section .close,
+      .icon-menu-section .close:hover,
+      .icon-menu-section .close:active,
+      .icon-menu-section .close:focus {
+         opacity: 1;
+         color: #fff
+      }
+
+      @media(min-width:992px) {
+         html[dir="ltr"] #stats {
+            padding-left: 0
+         }
+
+         html[dir="rtl"] #stats {
+            padding-right: 0
+         }
+      }
+
+      .app-name {
+         text-transform: capitalize;
+         padding: 0 0 5px 0;
+         display: block;
+         word-break: break-all
+      }
+
+      .general-info-label {
+         text-transform: capitalize;
+         display: block
+      }
+
+      .general-info-value {
+         display: block
+      }
+
+      .progress {
+         margin: 5px 0 5px 0
+      }
+
+      .progress-bar-disabled {
+         background-color: #b2b2b2
+      }
+
+      .progress {
+         height: 4px;
+         border-radius: 0;
+         box-shadow: none;
+         background: #c8c8c8
+      }
+
+      .progress .progress-bar {
+         box-shadow: none
+      }
+
+      .warning .app-stat-upgrade .fa-exclamation-triangle {
+         color: #8a6d3b
+      }
+
+      .danger .app-stat-upgrade .fa-exclamation-triangle {
+         color: #a94442
+      }
+
+      .success .progress-bar {
+         background-color: #5cb85c
+      }
+
+      .info .progress-bar {
+         background-color: #5bc0de
+      }
+
+      .warning .progress-bar {
+         background-color: #f0ad4e
+      }
+
+      .danger .progress-bar {
+         background-color: #d9534f
+      }
+
+      #statsSection tr.success.app-stat-row,
+      #statsSection tr.info.app-stat-row {
+         border-left: none
+      }
+
+      #statsSection tr.success td,
+      #statsSection tr.info td {
+         background: 0
+      }
+
+      #statsSection .app-stat-upgrade {
+         width: 50px;
+         padding: 0;
+         line-height: 75px;
+         text-align: center
+      }
+
+      .app-stat-upgrade a {
+         display: none;
+         height: 100%;
+         width: 100%;
+         text-align: center;
+         color: #fff;
+         background-color: #428bca
+      }
+
+      .warning>.app-stat-upgrade>a>i,
+      .danger>.app-stat-upgrade>a>i {
+         vertical-align: middle
+      }
+
+      .warning>.app-stat-upgrade>a,
+      .danger>.app-stat-upgrade>a {
+         display: inline-block
+      }
+
+      .updating-elements {
+         display: inline-block
+      }
+
+      .application-list-loading-indicator {
+         margin: auto;
+         font-weight: 500;
+         font-size: 36px;
+         text-align: center;
+         vertical-align: middle;
+         padding: 20px 0
+      }
+
+      /* Embedding: /usr/local/cpanel/base/frontend/paper_lantern/css/angular-chosen-spinner.min.css */
+      .localytics-chosen.loading+.chosen-container-multi .chosen-choices {
+         background-image: url('elements/spinner.gif');
+         background-repeat: no-repeat;
+         background-position: 98%
+      }
+
+      html[dir="rtl"] .localytics-chosen.loading+.chosen-container-multi .chosen-choices {
+         background-position: 2%
+      }
+
+      .localytics-chosen.loading+.chosen-container-single .chosen-single span {
+         background: url('elements/spinner.gif') no-repeat right
+      }
+
+      html[dir="rtl"] .localytics-chosen.loading+.chosen-container-single .chosen-single span {
+         background: url('elements/spinner.gif') no-repeat left
+      }
+
+      .localytics-chosen.loading+.chosen-container-single .chosen-single .search-choice-close {
+         display: none
+      }
+   </style>
+   <link rel="stylesheet" type="text/css" href="elements/icon_spritemap.css">
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+   <script type="text/javascript" src="elements/bootstrap.min.js"></script>
+</head>
+
+<body id="cpanel_body" class="yui-skin-sam">
+   <div id="wrap">
+      <header id="masterAppContainer" ng-controller="applicationListController" class="ng-scope">
+         <div class="navbar navbar-inverse navbar-cpanel navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+               <button type="button" id="btnSideBarToggle" class="cp-nav-toggle">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="cp-icon-bar"></span>
+                  <span class="cp-icon-bar"></span>
+                  <span class="cp-icon-bar"></span>
+               </button>
+               <a href="./" id="lnkHeaderHome" class="navbar-brand" target="_top" title="Home">
+                  <img id="imgLogo" class="navbar-brand-logo" src="elements/vplogo.png" alt="">
+                  <font style="vertical-align: sub;">
+                  </font>
+               </a>
+               <script type="text/ng-template" id="customTemplate.html">
+                  <a href="{{ match.model.url }}">
+                  </a>
+               </script>
+               <div class="navbar-preferences form-inline">
+                  <div class="btn-group">
+                     <button id="btnUserPref" data-toggle="dropdown" class="btn dropdown-toggle user-preferences-btn">
+                        <span id="userImg" class="glyphicon glyphicon-user"></span>
+                        <span id="lblUserNameTxt" class="hidden-inline-xs">YOURPREFIX_DEMO</span>
+                        <span id="caretImg" class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                           <a id="lnkUserPrefChangePwd" href="#" data-toggle="modal" data-target="#demo">Change
+                              Password</a>
+                        </li>
+                        <li>
+                           <a id="lnkUserPrefChangeLang" href="changelanguage.html">Change
+                              Language</a>
+                        </li>
+                        <li>
+                           <a id="lnkUserPrefUpdateContactInfo" href="changeemail.html">Update
+                              Contact Email </a>
+                        </li>
+                        <li>
+                           <a id="lnkUserPrefResetInterface" href="#" data-toggle="modal" data-target="#demo"
+                              onclick="reset_all_interface_settings()">
+                              Reset Page Settings
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+                  <a id="lnkHeaderLogout" target="_top" href="#" data-toggle="modal" data-target="#demo"
+                     class="btn link-buttons">
+                     <span id="logoutImg" class="glyphicon glyphicon-log-out"></span>
+                     <span id="lblLogout" class="hidden-inline-xs">Log Out</span>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <!-- UI INCLUDES GLOBAL HEADER -->
+         <div id="include-global-header">
+         </div>
+         <!-- UI INCLUDES GLOBAL HEADER END-->
+      </header>
+      <aside id="sidebar" class="ng-scope">
+         <a id="lnkMenu" href="./" title="" class="active" data-placement="right" data-original-title="Home">
+            <i class="fa fa-2x fa-th" id="imgMenu"></i>
+         </a>
+         <a id="26244546358179969" href="upgrade.html" data-placement="right"
+            data-original-title="Upgrade Plans">
+            <img width="28px" height="28px" src="elements/pl-sidebar-upgrade.png">
+         </a>
+         <br><br>
+         <div style="position: float;left:100px; vertical-align:middle;"></div>
+      </aside>
+    <div id="content">
+    <div class="body-content">
+    <img src="elements/page-white-php-icon.png"><b>&nbsp;Configure php directives</b>
+            <style type="text/css">
+    table {
+    font-size: 11px;
+    }
+    td {
+        font-size: 11px;
+    }
+    </style> 
+    <br><br>PHP directives for your domain<br><br><div class="highlight"><table><tbody><tr><td></td></tr><form name="errorpages_configure"></form><tr><td>Display Errors</td><td><input type="radio" name="display_errors" value="Off" checked="">Off</td><td><input type="radio" name="display_errors" value="On"> On</td></tr><tr><td>MB String Input</td><td colspan="2"><input size="20" name="mbstring_http_input" value="auto"></td></tr><tr><td>PHP Timezone</td><td colspan="2"><select name="date_timezone">
+        <option>Africa/Abidjan</option>
+    <option>Africa/Accra</option>
+    <option>Africa/Addis_Ababa</option>
+    <option>Africa/Algiers</option>
+    <option>Africa/Asmera</option>
+    <option>Africa/Bamako</option>
+    <option>Africa/Bangui</option>
+    <option>Africa/Banjul</option>
+    <option>Africa/Bissau</option>
+    <option>Africa/Blantyre</option>
+    <option>Africa/Brazzaville</option>
+    <option>Africa/Bujumbura</option>
+    <option>Africa/Cairo</option>
+    <option>Africa/Casablanca</option>
+    <option>Africa/Ceuta</option>
+    <option>Africa/Conakry</option>
+    <option>Africa/Dakar</option>
+    <option>Africa/Dar_es_Salaam</option>
+    <option>Africa/Djibouti</option>
+    <option>Africa/Douala</option>
+    <option>Africa/El_Aaiun</option>
+    <option>Africa/Freetown</option>
+    <option>Africa/Gaborone</option>
+    <option>Africa/Harare</option>
+    <option>Africa/Johannesburg</option>
+    <option>Africa/Kampala</option>
+    <option>Africa/Khartoum</option>
+    <option>Africa/Kigali</option>
+    <option>Africa/Kinshasa</option>
+    <option>Africa/Lagos</option>
+    <option>Africa/Libreville</option>
+    <option>Africa/Lome</option>
+    <option>Africa/Luanda</option>
+    <option>Africa/Lubumbashi</option>
+    <option>Africa/Lusaka</option>
+    <option>Africa/Malabo</option>
+    <option>Africa/Maputo</option>
+    <option>Africa/Maseru</option>
+    <option>Africa/Mbabane</option>
+    <option>Africa/Mogadishu</option>
+    <option>Africa/Monrovia</option>
+    <option>Africa/Nairobi</option>
+    <option>Africa/Ndjamena</option>
+    <option>Africa/Niamey</option>
+    <option>Africa/Nouakchott</option>
+    <option>Africa/Ouagadougou</option>
+    <option>Africa/Porto-Novo</option>
+    <option>Africa/Sao_Tome</option>
+    <option>Africa/Timbuktu</option>
+    <option>Africa/Tripoli</option>
+    <option>Africa/Tunis</option>
+    <option>Africa/Windhoek</option>
+    <option>America/Adak</option>
+    <option>America/Anchorage</option>
+    <option>America/Anguilla</option>
+    <option>America/Antigua</option>
+    <option>America/Araguaina</option>
+    <option>America/Aruba</option>
+    <option>America/Asuncion</option>
+    <option>America/Barbados</option>
+    <option>America/Belem</option>
+    <option>America/Belize</option>
+    <option>America/Bogota</option>
+    <option>America/Boise</option>
+    <option>America/Buenos_Aires</option>
+    <option>America/Cancun</option>
+    <option>America/Caracas</option>
+    <option>America/Catamarca</option>
+    <option>America/Cayenne</option>
+    <option>America/Cayman</option>
+    <option>America/Chicago</option>
+    <option>America/Chihuahua</option>
+    <option>America/Cordoba</option>
+    <option>America/Costa_Rica</option>
+    <option>America/Cuiaba</option>
+    <option>America/Curacao</option>
+    <option>America/Dawson_Creek</option>
+    <option>America/Dawson</option>
+    <option>America/Denver</option>
+    <option>America/Detroit</option>
+    <option>America/Dominica</option>
+    <option>America/Edmonton</option>
+    <option>America/El_Salvador</option>
+    <option>America/Ensenada</option>
+    <option>America/Fortaleza</option>
+    <option>America/Glace_Bay</option>
+    <option>America/Godthab</option>
+    <option>America/Goose_Bay</option>
+    <option>America/Grand_Turk</option>
+    <option>America/Grenada</option>
+    <option>America/Guadeloupe</option>
+    <option>America/Guatemala</option>
+    <option>America/Guayaquil</option>
+    <option>America/Guyana</option>
+    <option>America/Halifax</option>
+    <option>America/Havana</option>
+    <option>America/Indiana/Knox</option>
+    <option>America/Indiana/Marengo</option>
+    <option>America/Indianapolis</option>
+    <option>America/Indiana/Vevay</option>
+    <option>America/Inuvik</option>
+    <option>America/Iqaluit</option>
+    <option>America/Jamaica</option>
+    <option>America/Jujuy</option>
+    <option>America/Juneau</option>
+    <option>America/La_Paz</option>
+    <option>America/Lima</option>
+    <option>America/Los_Angeles</option>
+    <option>America/Louisville</option>
+    <option>America/Maceio</option>
+    <option>America/Managua</option>
+    <option>America/Manaus</option>
+    <option>America/Martinique</option>
+    <option>America/Mazatlan</option>
+    <option>America/Mendoza</option>
+    <option>America/Menominee</option>
+    <option>America/Mexico_City</option>
+    <option>America/Miquelon</option>
+    <option>America/Montevideo</option>
+    <option>America/Montreal</option>
+    <option>America/Montserrat</option>
+    <option>America/Nassau</option>
+    <option selected="">America/New_York</option>
+    <option>America/Nipigon</option>
+    <option>America/Nome</option>
+    <option>America/Noronha</option>
+    <option>America/Panama</option>
+    <option>America/Pangnirtung</option>
+    <option>America/Paramaribo</option>
+    <option>America/Phoenix</option>
+    <option>America/Port-au-Prince</option>
+    <option>America/Porto_Acre</option>
+    <option>America/Port_of_Spain</option>
+    <option>America/Porto_Velho</option>
+    <option>America/Puerto_Rico</option>
+    <option>America/Rainy_River</option>
+    <option>America/Rankin_Inlet</option>
+    <option>America/Regina</option>
+    <option>America/Rosario</option>
+    <option>America/Santiago</option>
+    <option>America/Santo_Domingo</option>
+    <option>America/Sao_Paulo</option>
+    <option>America/Scoresbysund</option>
+    <option>America/Shiprock</option>
+    <option>America/St_Johns</option>
+    <option>America/St_Kitts</option>
+    <option>America/St_Lucia</option>
+    <option>America/St_Thomas</option>
+    <option>America/St_Vincent</option>
+    <option>America/Swift_Current</option>
+    <option>America/Tegucigalpa</option>
+    <option>America/Thule</option>
+    <option>America/Thunder_Bay</option>
+    <option>America/Tijuana</option>
+    <option>America/Tortola</option>
+    <option>America/Vancouver</option>
+    <option>America/Whitehorse</option>
+    <option>America/Winnipeg</option>
+    <option>America/Yakutat</option>
+    <option>America/Yellowknife</option>
+    <option>Antarctica/Casey</option>
+    <option>Antarctica/Davis</option>
+    <option>Antarctica/DumontDUrville</option>
+    <option>Antarctica/Mawson</option>
+    <option>Antarctica/McMurdo</option>
+    <option>Antarctica/Palmer</option>
+    <option>Antarctica/South_Pole</option>
+    <option>Arctic/Longyearbyen</option>
+    <option>Asia/Aden</option>
+    <option>Asia/Almaty</option>
+    <option>Asia/Amman</option>
+    <option>Asia/Anadyr</option>
+    <option>Asia/Aqtau</option>
+    <option>Asia/Aqtobe</option>
+    <option>Asia/Ashkhabad</option>
+    <option>Asia/Baghdad</option>
+    <option>Asia/Bahrain</option>
+    <option>Asia/Baku</option>
+    <option>Asia/Bangkok</option>
+    <option>Asia/Beirut</option>
+    <option>Asia/Bishkek</option>
+    <option>Asia/Brunei</option>
+    <option>Asia/Calcutta</option>
+    <option>Asia/Chungking</option>
+    <option>Asia/Colombo</option>
+    <option>Asia/Dacca</option>
+    <option>Asia/Damascus</option>
+    <option>Asia/Dubai</option>
+    <option>Asia/Dushanbe</option>
+    <option>Asia/Gaza</option>
+    <option>Asia/Harbin</option>
+    <option>Asia/Hong_Kong</option>
+    <option>Asia/Irkutsk</option>
+    <option>Asia/Jakarta</option>
+    <option>Asia/Jayapura</option>
+    <option>Asia/Jerusalem</option>
+    <option>Asia/Kabul</option>
+    <option>Asia/Kamchatka</option>
+    <option>Asia/Karachi</option>
+    <option>Asia/Kashgar</option>
+    <option>Asia/Katmandu</option>
+    <option>Asia/Krasnoyarsk</option>
+    <option>Asia/Kuala_Lumpur</option>
+    <option>Asia/Kuching</option>
+    <option>Asia/Kuwait</option>
+    <option>Asia/Macao</option>
+    <option>Asia/Magadan</option>
+    <option>Asia/Manila</option>
+    <option>Asia/Muscat</option>
+    <option>Asia/Nicosia</option>
+    <option>Asia/Novosibirsk</option>
+    <option>Asia/Omsk</option>
+    <option>Asia/Phnom_Penh</option>
+    <option>Asia/Pyongyang</option>
+    <option>Asia/Qatar</option>
+    <option>Asia/Rangoon</option>
+    <option>Asia/Riyadh</option>
+    <option>Asia/Saigon</option>
+    <option>Asia/Samarkand</option>
+    <option>Asia/Seoul</option>
+    <option>Asia/Shanghai</option>
+    <option>Asia/Singapore</option>
+    <option>Asia/Taipei</option>
+    <option>Asia/Tashkent</option>
+    <option>Asia/Tbilisi</option>
+    <option>Asia/Tehran</option>
+    <option>Asia/Thimbu</option>
+    <option>Asia/Tokyo</option>
+    <option>Asia/Ujung_Pandang</option>
+    <option>Asia/Ulan_Bator</option>
+    <option>Asia/Urumqi</option>
+    <option>Asia/Vientiane</option>
+    <option>Asia/Vladivostok</option>
+    <option>Asia/Yakutsk</option>
+    <option>Asia/Yekaterinburg</option>
+    <option>Asia/Yerevan</option>
+    <option>Atlantic/Azores</option>
+    <option>Atlantic/Bermuda</option>
+    <option>Atlantic/Canary</option>
+    <option>Atlantic/Cape_Verde</option>
+    <option>Atlantic/Faeroe</option>
+    <option>Atlantic/Jan_Mayen</option>
+    <option>Atlantic/Madeira</option>
+    <option>Atlantic/Reykjavik</option>
+    <option>Atlantic/South_Georgia</option>
+    <option>Atlantic/Stanley</option>
+    <option>Atlantic/St_Helena</option>
+    <option>Australia/Adelaide</option>
+    <option>Australia/Brisbane</option>
+    <option>Australia/Broken_Hill</option>
+    <option>Australia/Darwin</option>
+    <option>Australia/Hobart</option>
+    <option>Australia/Lindeman</option>
+    <option>Australia/Lord_Howe</option>
+    <option>Australia/Melbourne</option>
+    <option>Australia/Perth</option>
+    <option>Australia/Sydney</option>
+    <option>Europe/Amsterdam</option>
+    <option>Europe/Andorra</option>
+    <option>Europe/Athens</option>
+    <option>Europe/Belfast</option>
+    <option>Europe/Belgrade</option>
+    <option>Europe/Berlin</option>
+    <option>Europe/Bratislava</option>
+    <option>Europe/Brussels</option>
+    <option>Europe/Bucharest</option>
+    <option>Europe/Budapest</option>
+    <option>Europe/Chisinau</option>
+    <option>Europe/Copenhagen</option>
+    <option>Europe/Dublin</option>
+    <option>Europe/Gibraltar</option>
+    <option>Europe/Helsinki</option>
+    <option>Europe/Istanbul</option>
+    <option>Europe/Kaliningrad</option>
+    <option>Europe/Kiev</option>
+    <option>Europe/Lisbon</option>
+    <option>Europe/Ljubljana</option>
+    <option>Europe/London</option>
+    <option>Europe/Luxembourg</option>
+    <option>Europe/Madrid</option>
+    <option>Europe/Malta</option>
+    <option>Europe/Minsk</option>
+    <option>Europe/Monaco</option>
+    <option>Europe/Moscow</option>
+    <option>Europe/Oslo</option>
+    <option>Europe/Paris</option>
+    <option>Europe/Prague</option>
+    <option>Europe/Riga</option>
+    <option>Europe/Rome</option>
+    <option>Europe/Samara</option>
+    <option>Europe/San_Marino</option>
+    <option>Europe/Sarajevo</option>
+    <option>Europe/Simferopol</option>
+    <option>Europe/Skopje</option>
+    <option>Europe/Sofia</option>
+    <option>Europe/Stockholm</option>
+    <option>Europe/Tallinn</option>
+    <option>Europe/Tirane</option>
+    <option>Europe/Vaduz</option>
+    <option>Europe/Vatican</option>
+    <option>Europe/Vienna</option>
+    <option>Europe/Vilnius</option>
+    <option>Europe/Warsaw</option>
+    <option>Europe/Zagreb</option>
+    <option>Europe/Zurich</option>
+    <option>Indian/Antananarivo</option>
+    <option>Indian/Chagos</option>
+    <option>Indian/Christmas</option>
+    <option>Indian/Cocos</option>
+    <option>Indian/Comoro</option>
+    <option>Indian/Kerguelen</option>
+    <option>Indian/Mahe</option>
+    <option>Indian/Maldives</option>
+    <option>Indian/Mauritius</option>
+    <option>Indian/Mayotte</option>
+    <option>Indian/Reunion</option>
+    <option>Pacific/Apia</option>
+    <option>Pacific/Auckland</option>
+    <option>Pacific/Chatham</option>
+    <option>Pacific/Easter</option>
+    <option>Pacific/Efate</option>
+    <option>Pacific/Enderbury</option>
+    <option>Pacific/Fakaofo</option>
+    <option>Pacific/Fiji</option>
+    <option>Pacific/Funafuti</option>
+    <option>Pacific/Galapagos</option>
+    <option>Pacific/Gambier</option>
+    <option>Pacific/Guadalcanal</option>
+    <option>Pacific/Guam</option>
+    <option>Pacific/Honolulu</option>
+    <option>Pacific/Johnston</option>
+    <option>Pacific/Kiritimati</option>
+    <option>Pacific/Kosrae</option>
+    <option>Pacific/Kwajalein</option>
+    <option>Pacific/Majuro</option>
+    <option>Pacific/Marquesas</option>
+    <option>Pacific/Midway</option>
+    <option>Pacific/Nauru</option>
+    <option>Pacific/Niue</option>
+    <option>Pacific/Norfolk</option>
+    <option>Pacific/Noumea</option>
+    <option>Pacific/Pago_Pago</option>
+    <option>Pacific/Palau</option>
+    <option>Pacific/Pitcairn</option>
+    <option>Pacific/Ponape</option>
+    <option>Pacific/Port_Moresby</option>
+    <option>Pacific/Rarotonga</option>
+    <option>Pacific/Saipan</option>
+    <option>Pacific/Tahiti</option>
+    <option>Pacific/Tarawa</option>
+    <option>Pacific/Tongatapu</option>
+    <option>Pacific/Truk</option>
+    <option>Pacific/Wake</option>
+    <option>Pacific/Wallis</option>
+    <option>Pacific/Yap</option>
+    </select>
+    </td></tr><tr><td><input type="hidden" name="domain_name"></td></tr><tr><td><input value="Alter PHP directives" class="btn btn-primary" type="button" href="#" data-toggle="modal" data-target="#demo"></td></tr></tbody></table></div>
+    <footer>
+        <!-- UI INCLUDES GLOBAL FOOTER -->
+        <!-- UI INCLUDES GLOBAL FOOTER END -->
+        <div class="container-fluid">
+           <br>
+           <!--Add your themes and scripts BELOW this line. No theme is currently active, and Responsive Domain Search is enabled.-->
+    
+           <script src="https://vpc.cdn.wybenetwork.com/responsive-domain-search/responsive-domain-search.js"
+              type="text/javascript"></script>
+           <!--Add your themes and scripts ABOVE this line. No theme is currently active, and Responsive Domain Search is enabled.-->
+           <div class="navbar">
+              <div class="navbar-brand" style="display:inline-block; z-index:2147483647; visibility:invisible;">
+                 <a id="lnkPoweredByCpanel" href="https://www.cpanel.net" target="cpanel" title="cPanel, Inc."
+                    style="display:inline-block; z-index:2147483647; visibility:visible;">
+                    <img id="imgPoweredByCpanel" src="elements/powered_by_cpanel.png" alt="cPanel, Inc."
+                       style="display:inline-block; z-index:2147483647; visibility:visible;">
+                 </a>
+                 <sub id="txtCpanelVersion"
+                    style="display:inline-block; z-index:2147483647; visibility:visible;"></sub>
+              </div>
+           </div>
+        </div>
+        <div class="modal fade" id="demo" tabindex="-1" role="dialog" aria-labelledby="demoDisabled" aria-hidden="true"
+           style="display: none;">
+           <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                 <div class="modal-header"
+                    style="border: 1px solid #293a4a;background-color: rgba(41,58,74,.95);color: #fff;">
+                    <h4 class="modal-title" id="demoDisabled">Demo Mode</h4>
+                 </div>
+                 <div class="modal-body">
+                    <p>This functionality is disabled in demo mode!</p>
+                 </div>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>
+</body>
+</html>
