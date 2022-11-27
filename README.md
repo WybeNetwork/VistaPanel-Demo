@@ -42,7 +42,7 @@ Copyright 2022 Wybe Network. No Rights Reserved, check the [LICENSE](LICENSE.md)
 
 The idea for this project was conceived by [SmallHost](https://smallhost.us.to), in this forum post: [Demo Hosting Account](https://www.byet.net/index.php?/topic/24001-demo-hosting-account/)
 
-This project is currently maintained by [ImLoadingUuU](https://github.com/ImLoadingUuU) and [Anyx](https://github.com/4yx).
+This project is currently actively developed and maintained by [Felipe B. Pansani](https://github.com/fbp110) and [ImLoadingUuU](https://github.com/ImLoadingUuU).
 
 All files included are licensed under their own terms, with the copyrights to their owners retained.
 
