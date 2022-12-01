@@ -1,0 +1,337 @@
+@charset "utf-8";
+
+/**** DIV.FORM-1 Styles (it's used for the Ask Question and Add Comment forms) ****/
+
+ /* general */
+
+ div.form-1 {
+
+margin: 20px 20px 0 0;
+
+}
+
+ /* depricate previos style for ask question layout */
+
+ .ask-question-link div.form-1 {
+margin: 0;
+}
+
+ /* ask question link */
+
+ /*.ask-question-link div.form-1 {
+
+margin: 0;
+
+}
+
+*/
+
+ .ask-question-link div.form-1 div.top, .ask-question-link div.form-1 div.top *, .ask-question-link div.form-1 div.btm, .ask-question-link div.form-1 div.btm *, .ask-question-link div.form-1 div.form-data {
+
+ background: transparent none !important;
+
+ }
+
+ .ask-question-link div.form-1 table.form-btn-1 {
+
+margin-top: 5px;
+
+}
+
+ /* ask question link END */
+
+ .ask-question-link div.form-1 form textarea {
+
+height: 160px;
+
+}
+
+ .ask-question-link div.form-1 div.ttl {
+
+display: none;
+
+}
+
+ div.form-1 div.form-case {
+
+ padding: 0 10px 15px 0;
+
+ /* for ie6 */
+
+ _height: 1px;
+
+ }
+
+ div.form-1 form span {
+
+ font-size: 11px;
+
+ }
+
+ .ask-question-link div.form-1 form span {
+
+font-size: 12px;
+
+}
+
+ .kmp-gateway div h3.add-cat-ttl {
+
+font-size: 18px;
+
+ font-weight: normal;
+
+ color: #693;
+
+ margin-bottom: 5px;
+
+}
+
+ .ask-question-link h3 {
+
+font-size: 18px;
+
+ color: #693;
+
+ margin: 0 0 5px 10px;
+
+ font-weight: normal;
+
+ display: inline;
+
+}
+
+ div.form-1 form input, div.form-1 form textarea {
+
+ padding: 3px 2px;
+
+ border: 1px solid #888;
+
+ display: block;
+
+ margin: 2px 0px 4px;
+
+ width: 100%;
+
+ *vertical-align: 2px;
+
+ /* for ie */
+
+ }
+
+ div.form-1 form input.captcha {
+
+width: 45px;
+
+}
+
+ /* for ie 6 */
+
+ div.form-1 form td.captcha {
+
+width: 50px;
+
+}
+
+ div.form-1 img.captcha-img {
+
+ padding: 2px 0 5px 5px;
+
+ }
+
+ div.form-1 form textarea {
+
+ height: 77px;
+
+ padding: 2px;
+
+ font-size: 12px;
+
+ }
+
+ div.form-1 table input {
+
+ *position: relative;
+
+ /* for ie, CAPTCHA input */
+
+ }
+
+ div.form-1 span#ask-question-title {
+
+ cursor: pointer;
+
+ text-decoration: underline;
+
+ }
+
+ div.form-1 span#ask-question-title.noclick {
+
+ cursor: default;
+
+ text-decoration: none;
+
+ }
+
+ div.form-1 div#ask-question-case {
+
+ padding-bottom: 16px;
+
+ }
+
+ /* fixing troubles in ie6 with form width after adding inputs left/right paddings */
+
+ div.form-1 form {
+
+_padding-left: 6px;
+
+}
+
+ div.form-1 form table.ask-question-data {
+ width: 100%;
+ }
+
+ div.form-1 form table.ask-question-data td.ask-question-data {
+
+ _padding-left: 6px;
+
+ padding-right: 6px;
+
+ }
+
+ div.form-1 form input, div.form-1 form textarea, div.form-1 form table.form-btn-1, div.form-1 form table img {
+
+_margin-left: -6px;
+
+}
+
+ .popup-data-holder input, .popup-data-holder textarea, .popup-data-holder table.form-btn-1, .popup-data-holder img {
+
+ _margin-left: 0 !important;
+
+ }
+
+ div.form-1 form table img {
+
+_position: relative;
+
+}
+
+ /* fix END */
+
+ div.form-1 div#ask-question-case-opened {
+
+display: block;
+
+}
+
+ div.form-1 div#ask-question-case.hidden {
+
+display: none;
+
+}
+
+ /* general end */
+
+ /* div.form-1 title */
+
+ div.form-1 div.ttl {
+
+ padding: 10px 0;
+
+ }
+
+ div.form-1 div.ttl img {
+
+ vertical-align: bottom;
+
+ margin-left: 0px;
+
+ }
+
+ div.form-1 div.ttl span {
+
+ color: #003300;
+
+ font-size: 13px;
+
+ font-weight: bold;
+
+ margin-left: 10px;
+
+ }
+
+ /* div.form-1 title end */
+
+ /* rounded corners for div.form-1 */
+
+ div.form-1 div.top div.r div, div.form-1 div.btm div.r div {
+
+ height: 5px;
+
+ margin: 0 5px;
+
+ background-color: #<? echo $_SESSION[vp_main_bg_col] ;?>;
+
+ }
+
+ div.form-1 div.top div.r {
+
+ background-position: 100% -5px;
+
+ }
+
+ div.form-1 div.btm {
+
+ background-position: 0 -10px;
+
+ }
+
+ div.form-1 div.btm div.r {
+
+ background-position: 100% -15px;
+
+ }
+
+ /* rounded corners for div.form-1 end */
+
+ /* div.form-1 content */
+
+ div.form-1 div.form-data {
+
+ background-color: #<? echo $_SESSION[vp_main_bg_col] ;?>;
+
+ padding: 2px 12px 0 10px;
+
+ zoom: 1;
+
+ /* bug fix for ie6 */
+
+ }
+
+ /* div.form-1 content end */
+
+ /* purposes */
+
+ #ask-proposes {
+
+font-size: 0px;
+
+}
+
+ #ask-proposes-data {
+
+font-size: 12px;
+
+ /* to fix an issue with line-height in FF */
+
+}
+
+ #ask-proposes-data ul li {
+
+line-height: 15px;
+
+}
+
+ /* purposes end */
+
+ /**** DIV.FORM-1 Styles End ****/
