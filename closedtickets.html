@@ -1,0 +1,512 @@
+<html lang="english" dir="ltr" data-style="basic">
+<!--
+   vPanel Demo
+   (c) 2022-Present Wybe Network, no rights reserved. The idea and text is from SmallHost, at smallhost.us.to.
+   This is a demo version of vPanel for MOFH-based providers.
+   You are free to use this code with changes that will be explained later. 
+   Providing/retaining credit to Wybe and SmallHost is recommended, but not required.
+   Enjoy! ^w^
+-->
+<head>
+   <style type="text/css">
+      .ng-animate.item:not(.left):not(.right) {
+         -webkit-transition: 0s ease-in-out left;
+         transition: 0s ease-in-out left
+      }
+   </style>
+   <style type="text/css">
+      @charset "UTF-8";
+
+      [ng\:cloak],
+      [ng-cloak],
+      [data-ng-cloak],
+      [x-ng-cloak],
+      .ng-cloak,
+      .x-ng-cloak,
+      .ng-hide:not(.ng-hide-animate) {
+         display: none !important;
+      }
+
+      ng\:form {
+         display: block;
+      }
+
+      .ng-animate-shim {
+         visibility: hidden;
+      }
+
+      .ng-anchor {
+         position: absolute;
+      }
+   </style>
+   <title> </title>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width">
+   <!-- Chrome, Firefox OS and Opera -->
+   <meta name="theme-color" content="#293a4a">
+   <!-- Mobile Chrome-->
+   <meta name="mobile-web-app-capable" content="yes">
+   <meta name="mobile-web-app-status-bar-style" content="default">
+   <!-- iOS Safari -->
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+   <link rel="shortcut icon" href="elements/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" type="text/css" href="elements/original.master-ltr.cmb.min.css">
+   <link rel="stylesheet" type="text/css" href="elements/chosen.min.css">
+   <style type="text/css">
+      /* Embedding: /usr/local/cpanel/base/frontend/paper_lantern/home/dashboard.min.css */
+      #cpanel_body {
+         max-width: none
+      }
+
+      .panel-widget {
+         border-radius: 3px;
+         box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+         height: auto;
+         border: 0;
+         margin-bottom: 15px;
+         display: table;
+         width: 100%;
+         max-width: 100%
+      }
+
+      .widget-heading {
+         border: 1px solid #293a4a;
+         background-color: rgba(41, 58, 74, .95);
+         color: #fff;
+         text-transform: uppercase
+      }
+
+      .widget-heading .close {
+         color: #fff;
+         opacity: 1
+      }
+
+      .widget-draggable {
+         cursor: move
+      }
+
+      .group-header-indicator {
+         cursor: pointer
+      }
+
+      html[dir="rtl"] .pull-right {
+         float: left !important
+      }
+
+      .alert-list {
+         margin: 0;
+         padding: 0;
+         width: 100%
+      }
+
+      .alert-item {
+         padding: 0 8px;
+         display: inline-block;
+         width: 50%;
+         vertical-align: top;
+         float: left;
+         zoom: 1;
+         *display: inline
+      }
+
+      html[dir="rtl"] .alert-item {
+         float: right
+      }
+
+      @media(max-width:767px) {
+         .alert-item {
+            width: 100%;
+            padding: 0 8px
+         }
+      }
+
+      .drag {
+         opacity: .5
+      }
+
+      .drag+.drag-over,
+      #content .drag-hidden {
+         margin: 0;
+         height: 0;
+         outline-style: none
+      }
+
+      .drag-over {
+         outline-style: dashed;
+         height: 80px;
+         margin: 10px 0
+      }
+
+      .drop-area {
+         padding: 5px 0
+      }
+
+      #jump-search {
+         margin-bottom: 5px
+      }
+
+      .icon-menu-section {
+         margin-bottom: 5px
+      }
+
+      .icon-container-body {
+         padding-left: 15px;
+         padding-top: 15px;
+         clear: both;
+         margin-left: 0;
+         margin-right: 0;
+         overflow: hidden;
+         width: 100%
+      }
+
+      html[dir="rtl"] .icon-container-body {
+         padding-right: 15px;
+         padding-left: 0
+      }
+
+      .item {
+         float: left;
+         height: 60px;
+         padding: 0;
+         text-align: left
+      }
+
+      html[dir="rtl"] .item {
+         text-align: right;
+         float: right
+      }
+
+      .icon {
+         display: block;
+         margin: auto
+      }
+
+      .itemContentWrapper {
+         padding: 0;
+         width: 100%
+      }
+
+      .itemImageWrapper {
+         display: inline-block;
+         vertical-align: middle
+      }
+
+      .itemTextWrapper {
+         padding: 10px 0 10px 5px;
+         display: inline-block;
+         vertical-align: middle;
+         width: 200px
+      }
+
+      html[dir="rtl"] .itemTextWrapper {
+         padding: 10px 5px 10px 0
+      }
+
+      .icon-menu-section .close,
+      .icon-menu-section .close:hover,
+      .icon-menu-section .close:active,
+      .icon-menu-section .close:focus {
+         opacity: 1;
+         color: #fff
+      }
+
+      @media(min-width:992px) {
+         html[dir="ltr"] #stats {
+            padding-left: 0
+         }
+
+         html[dir="rtl"] #stats {
+            padding-right: 0
+         }
+      }
+
+      .app-name {
+         text-transform: capitalize;
+         padding: 0 0 5px 0;
+         display: block;
+         word-break: break-all
+      }
+
+      .general-info-label {
+         text-transform: capitalize;
+         display: block
+      }
+
+      .general-info-value {
+         display: block
+      }
+
+      .progress {
+         margin: 5px 0 5px 0
+      }
+
+      .progress-bar-disabled {
+         background-color: #b2b2b2
+      }
+
+      .progress {
+         height: 4px;
+         border-radius: 0;
+         box-shadow: none;
+         background: #c8c8c8
+      }
+
+      .progress .progress-bar {
+         box-shadow: none
+      }
+
+      .warning .app-stat-upgrade .fa-exclamation-triangle {
+         color: #8a6d3b
+      }
+
+      .danger .app-stat-upgrade .fa-exclamation-triangle {
+         color: #a94442
+      }
+
+      .success .progress-bar {
+         background-color: #5cb85c
+      }
+
+      .info .progress-bar {
+         background-color: #5bc0de
+      }
+
+      .warning .progress-bar {
+         background-color: #f0ad4e
+      }
+
+      .danger .progress-bar {
+         background-color: #d9534f
+      }
+
+      #statsSection tr.success.app-stat-row,
+      #statsSection tr.info.app-stat-row {
+         border-left: none
+      }
+
+      #statsSection tr.success td,
+      #statsSection tr.info td {
+         background: 0
+      }
+
+      #statsSection .app-stat-upgrade {
+         width: 50px;
+         padding: 0;
+         line-height: 75px;
+         text-align: center
+      }
+
+      .app-stat-upgrade a {
+         display: none;
+         height: 100%;
+         width: 100%;
+         text-align: center;
+         color: #fff;
+         background-color: #428bca
+      }
+
+      .warning>.app-stat-upgrade>a>i,
+      .danger>.app-stat-upgrade>a>i {
+         vertical-align: middle
+      }
+
+      .warning>.app-stat-upgrade>a,
+      .danger>.app-stat-upgrade>a {
+         display: inline-block
+      }
+
+      .updating-elements {
+         display: inline-block
+      }
+
+      .application-list-loading-indicator {
+         margin: auto;
+         font-weight: 500;
+         font-size: 36px;
+         text-align: center;
+         vertical-align: middle;
+         padding: 20px 0
+      }
+
+      /* Embedding: /usr/local/cpanel/base/frontend/paper_lantern/css/angular-chosen-spinner.min.css */
+      .localytics-chosen.loading+.chosen-container-multi .chosen-choices {
+         background-image: url('elements/spinner.gif');
+         background-repeat: no-repeat;
+         background-position: 98%
+      }
+
+      html[dir="rtl"] .localytics-chosen.loading+.chosen-container-multi .chosen-choices {
+         background-position: 2%
+      }
+
+      .localytics-chosen.loading+.chosen-container-single .chosen-single span {
+         background: url('elements/spinner.gif') no-repeat right
+      }
+
+      html[dir="rtl"] .localytics-chosen.loading+.chosen-container-single .chosen-single span {
+         background: url('elements/spinner.gif') no-repeat left
+      }
+
+      .localytics-chosen.loading+.chosen-container-single .chosen-single .search-choice-close {
+         display: none
+      }
+   </style>
+   <link rel="stylesheet" type="text/css" href="elements/icon_spritemap.css">
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+   <script type="text/javascript" src="elements/bootstrap.min.js"></script>
+</head>
+
+<body id="cpanel_body" class="yui-skin-sam">
+   <div id="wrap">
+      <header id="masterAppContainer" ng-controller="applicationListController" class="ng-scope">
+         <div class="navbar navbar-inverse navbar-cpanel navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+               <button type="button" id="btnSideBarToggle" class="cp-nav-toggle">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="cp-icon-bar"></span>
+                  <span class="cp-icon-bar"></span>
+                  <span class="cp-icon-bar"></span>
+               </button>
+               <a href="./" id="lnkHeaderHome" class="navbar-brand" target="_top" title="Home">
+                  <img id="imgLogo" class="navbar-brand-logo" src="elements/vplogo.png" alt="">
+                  <font style="vertical-align: sub;">
+                  </font>
+               </a>
+               <script type="text/ng-template" id="customTemplate.html">
+                  <a href="{{ match.model.url }}">
+                  </a>
+               </script>
+               <div class="navbar-preferences form-inline">
+                  <div class="btn-group">
+                     <button id="btnUserPref" data-toggle="dropdown" class="btn dropdown-toggle user-preferences-btn">
+                        <span id="userImg" class="glyphicon glyphicon-user"></span>
+                        <span id="lblUserNameTxt" class="hidden-inline-xs">YOURPREFIX_DEMO</span>
+                        <span id="caretImg" class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                           <a id="lnkUserPrefChangePwd" href="#" data-toggle="modal" data-target="#demo">Change
+                              Password</a>
+                        </li>
+                        <li>
+                           <a id="lnkUserPrefChangeLang" href="changelanguage.html">Change
+                              Language</a>
+                        </li>
+                        <li>
+                           <a id="lnkUserPrefUpdateContactInfo" href="changeemail.html">Update
+                              Contact Email </a>
+                        </li>
+                        <li>
+                           <a id="lnkUserPrefResetInterface" href="#" data-toggle="modal" data-target="#demo"
+                              onclick="reset_all_interface_settings()">
+                              Reset Page Settings
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+                  <a id="lnkHeaderLogout" target="_top" href="#" data-toggle="modal" data-target="#demo"
+                     class="btn link-buttons">
+                     <span id="logoutImg" class="glyphicon glyphicon-log-out"></span>
+                     <span id="lblLogout" class="hidden-inline-xs">Log Out</span>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <!-- UI INCLUDES GLOBAL HEADER -->
+         <div id="include-global-header">
+         </div>
+         <!-- UI INCLUDES GLOBAL HEADER END-->
+      </header>
+      <aside id="sidebar" class="ng-scope">
+         <a id="lnkMenu" href="./" title="" class="active" data-placement="right" data-original-title="Home">
+            <i class="fa fa-2x fa-th" id="imgMenu"></i>
+         </a>
+         <a id="26244546358179969" href="upgrade.html" data-placement="right"
+            data-original-title="Upgrade Plans">
+            <img width="28px" height="28px" src="elements/pl-sidebar-upgrade.png">
+         </a>
+         <br><br>
+         <div style="position: float;left:100px; vertical-align:middle;"></div>
+      </aside>
+    <div id="content" class="container-fluid">
+                <h1 class="page-header">
+                <span id="icon-createticket" class="page-icon icon-createticket"></span>
+                <span id="pageHeading">Your Open Support Tickets</span>
+            </h1>
+    <div class="body-content">
+    <table style="text-align: left; width: 800px;" border="0" cellpadding="0" cellspacing="40">
+    <tbody>
+        <tr>
+        <td>
+    <font style="" size="-2" class="popuptop">
+    <small><b>Viewing</b> (Status='Closed')<br><br></small>
+    </font>
+    <table id="subdomaintbl" class="table truncate-table" style="text-align: left; width:700px ;" border="0" cellpadding="2" cellspacing="2">
+    <tbody>
+    <tr>
+        <th class="cell">
+            <small>Ticket ID</small>
+        </th>
+        <th class="cell">Status</th>
+        <th class="cell">Domain</th>
+        <th class="cell">Subject</th>
+        <th class="cell">Updated</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>C</td>
+        <td><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#demo">wonderfulblog.com</a></td>
+        <td>Problem with PHP</td>
+        <td>November 25, 2022, 11:09pm</td>
+    </tr>   
+    </td>
+        </tr>
+        </tbody>
+        </table>
+        <br>
+    </div>
+    </div>
+    </div>
+    <footer>
+        <!-- UI INCLUDES GLOBAL FOOTER -->
+        <!-- UI INCLUDES GLOBAL FOOTER END -->
+        <div class="container-fluid">
+           <br>
+           <!--Add your themes and scripts BELOW this line. No theme is currently active.-->
+
+           <!--Add your themes and scripts ABOVE this line. No theme is currently active.-->
+           <div class="navbar">
+              <div class="navbar-brand" style="display:inline-block; z-index:2147483647; visibility:invisible;">
+                 <a id="lnkPoweredByCpanel" href="https://www.cpanel.net" target="cpanel" title="cPanel, Inc."
+                    style="display:inline-block; z-index:2147483647; visibility:visible;">
+                    <img id="imgPoweredByCpanel" src="elements/powered_by_cpanel.png" alt="cPanel, Inc."
+                       style="display:inline-block; z-index:2147483647; visibility:visible;">
+                 </a>
+                 <sub id="txtCpanelVersion"
+                    style="display:inline-block; z-index:2147483647; visibility:visible;"></sub>
+              </div>
+           </div>
+        </div>
+        <div class="modal fade" id="demo" tabindex="-1" role="dialog" aria-labelledby="demoDisabled" aria-hidden="true"
+           style="display: none;">
+           <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                 <div class="modal-header"
+                    style="border: 1px solid #293a4a;background-color: rgba(41,58,74,.95);color: #fff;">
+                    <h4 class="modal-title" id="demoDisabled">Demo Mode</h4>
+                 </div>
+                 <div class="modal-body">
+                    <p>This functionality is disabled in demo mode!</p>
+                 </div>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>
+
+</body>
+</html>
