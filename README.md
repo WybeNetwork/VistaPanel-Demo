@@ -2,16 +2,17 @@
 
 This repository contains a working demo of VistaPanel, a web hosting panel used in MyOwnFreeHost.  
 
-## Features
-- [x] DNS Records pages
-- [x] PHP Version Changer
-- [x] MySQL
-- [x] PHPInfo
-- [x] PMA
-- [x] Disk Usage
-- [x] Account Upgrades
-- [x] Domains Pages
-- [ ] More coming soon!
+## Sections complete
+- [x] Preferences
+- [x] Files
+- [x] Databases
+- [x] Domains
+- [ ] E-mail
+- [x] Metrics
+- [x] Security
+- [x] Software
+- [x] Advanced
+- [x] Support
 
 ## Customization
 Using a search and replace function, you are encouraged to customize the following attributes to your own:  
