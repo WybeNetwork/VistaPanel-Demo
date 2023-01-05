@@ -7,7 +7,7 @@ This repository contains a working demo of VistaPanel, a web hosting panel used 
 - [x] Files
 - [x] Databases
 - [x] Domains
-- [ ] E-mail
+- [x] E-mail
 - [x] Metrics
 - [x] Security
 - [x] Software
@@ -39,7 +39,7 @@ If you do not want to host the files yourself, you can use the following files:
 You'll still have to host the HTML file, obviously. You could point to [our demo](https://vpd.cdn.wybenetwork.com), however it will be using the default configuration.
 
 ## Copyright Info and Credits
-Copyright 2022 Wybe Network. No Rights Reserved, check the [LICENSE](LICENSE.md) for more details.
+Copyright 2022-2023 Wybe Network. No Rights Reserved, check the [LICENSE](LICENSE.md) for more details.
 
 The idea for this project was conceived by [SmallHost](https://smallhost.us.to), in this forum post: [Demo Hosting Account](https://www.byet.net/index.php?/topic/24001-demo-hosting-account/)
 
