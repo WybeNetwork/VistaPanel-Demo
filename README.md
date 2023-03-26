@@ -43,12 +43,13 @@ Copyright 2022-2023 Wybe Network. No Rights Reserved, check the [LICENSE](LICENS
 
 The idea for this project was conceived by [SmallHost](https://smallhost.us.to), in this forum post: [Demo Hosting Account](https://www.byet.net/index.php?/topic/24001-demo-hosting-account/)
 
-This project is currently actively developed and maintained by [Felipe B. Pansani](https://github.com/fbp110) and [ImLoadingUuU](https://github.com/ImLoadingUuU). **All contributions are welcome.**
+This project is currently actively developed and maintained by [Anyx](https://github.com/4yx) and [ImLoadingUuU](https://github.com/ImLoadingUuU). **All contributions are welcome.**
 
 All files included are licensed under their own terms, with the copyrights to their owners retained.
 
 ### Contributors
 - [Anyx](https://github.com/4yx): project creator.  
-- [ImLoadingUuU](https://github.com/ImLoadingUuU), [Felipe B. Pansani](https://github.com/fbp110): core contributors and maintainers.  
+- [ImLoadingUuU](https://github.com/ImLoadingUuU): core contributor and maintainer.
+- [Felipe B. Pansani](https://www.byet.net/index.php?/profile/603915-pansani/): retired core contributor.
 - [SmallHost](https://github.com/SmallHost): source of inspiration.  
 - [AADev](https://github.com/aa22dev): contributor and bug fixer.  
